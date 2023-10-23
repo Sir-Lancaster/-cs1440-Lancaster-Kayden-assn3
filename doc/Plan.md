@@ -20,6 +20,25 @@ Deliver:
 *   [ ] **Tag** the last commit in this phase `analyzed` and push it to GitLab.
     *   *Grace Points: if this tag is pushed by midnight on the Sunday before the due date, you will receive up to 5 points back*
 
+### My Analysis
+* This program aims to take a large file from the Beuro of Labor Statistics and parse through the large CSV files to generate a report about the information contained therein. It is my job to write the functions that gather only the desired information on the desired FIPS locations.
+    * **utility** functions that will determine whether a the information is the desired areas I am looking for, then whether it is the correct information I am looking for in said area.
+    * **area_titles** will take the data from area_titles.csv and convert it to a dictionary.
+    * **add_record** adds the data from the file to the report.
+    * **big_data** is the main function that ties it all together. 
+* All of the data in this program comes from two files: area_titles.csv and 2022.annual.singlefile.csv
+    * The latter will be used to gather all of the information for the report.
+    * The former will be used to generate a dictionary.
+    * A good solution will iterate the the csv files as few times as possible, will run swiftly, and will not crash unless it is the fault of the user. 
+    * **Knowns:**
+        * How to parse a file.
+        * How to use the unit functions.
+        * How to initialize a dictionary.
+    * **Unknowns:**
+        * The main thing that comes to mind is how to get a function to creat and add elements to a dictionary from the csv file.
+    * **unknown unknowns:**
+        * anything that i find later. 
+
 
 ## Phase 1: Design (tag name `designed`)
 *(30% of your effort)*
