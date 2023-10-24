@@ -43,6 +43,68 @@ Deliver:
 ## Phase 1: Design (tag name `designed`)
 *(30% of your effort)*
 
+### Util.py
+The heart of the program.
+
+#### record_matches_fips(record, area)
+```python
+   # Predicate that takes a QCEW record and dictionary of FIPS areas and decides whether the record contains information about a FIPS area in the dictionary
+   # because the function signiture contains record and area it can be assumed that the function will not need to open the file.
+
+   if record is in area
+        return True
+    else 
+        return false
+```
+This function simply asks if the QCEW record that is passed to this function is in the area dictionary, in which case it will return true. If it is not in the dictionary it will return false and move on. 
+
+#### record_is_all_industries(record)
+```Python 
+#    Predicate that takes a QCEW record and decides whether the record contains information about all industries under all types of ownership throughout the entire economy
+    if record[2] == '10'
+        return True
+    else
+        return False
+```
+Simply looks at the third field and returns true if the industry code is 10, meaning that it is all industries. 
+
+#### record_is_software_industry(record)
+```Python
+#   Predicate that takes a QCEW record and decides whether the record contains information about privately owned software publishing firms
+    if record[2] == '513210' and record[1] == '5'
+        return True
+    else 
+        return False
+```
+Checks to see that both the industry code is 513210 and the own code is 5, then returns true. if one is not true then it will return false. 
+
+#### get_fips(record)
+```Python
+#    Extracts a FIPS area code from a QCEW record
+    return record[0]
+```
+FIPS codes are in the first field so the function will return what is in the first field. 
+
+#### get_estabs(record)
+```Python 
+#   Extracts the annual average of quarterly establishment counts for a given year from a QCEW record
+return record[13]
+```
+this will look at the annual average of quarterly establishment counts and will return it so that it can be used for the report. 
+
+#### get_emplvl(records)
+```Python
+#    Extracts the annual average of monthly employment levels for a given year from a QCEW record
+return record[14]
+```
+Same as the last one but returns emplvl
+
+#### get_wages(record)
+```Python
+#    Extracts the sum of the four quarterly total wage levels for a given year from a QCEW record
+return record[15]
+```
+returns the total anual wages. 
 **Important - do not change the code in this phase**
 
 Deliver:
