@@ -142,7 +142,24 @@ October 25: Added the if statement that will filter out the bad FIPS.
 Initializes all of the attributes for the industry data class.
 
 ### add_reacord(self, record, areas)
-
+```Python
+for record in areas
+    num_areas += 1
+    CurrentRecordWages = getwages(record)
+    total_annual_wages += CurrentRecordWages
+    if CurrentRecordWages > max_annual_wages[1]
+        max_annual_wages = [areas, CurrentRecordWages]
+    
+    CurrentRecordEstab = getestabs(record)
+    total_estab += CurrentRecordEstab
+    if CurrentRecordEstab > max_estab[1]
+        max_estab = [areas, CurrentRecordEstab]
+    
+    CurrentRecordEmplvl = getemplvl(record)
+    total_empl += CurrentRecordEmplvl
+    if CurrentRecordEmplvl > max_empl[1]
+        max_empl = [areas, CurrentRecordEmplvl]
+```
 **Important - do not change the code in this phase**
 
 Deliver:
