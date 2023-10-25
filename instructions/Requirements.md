@@ -27,7 +27,7 @@ This assignment focuses on **Test Driven Development (TDD)**, which differs from
     *   Adjust the code to align with the tests, not the other way around.
     *   You are allowed, *but not required* to add more unit tests to the suite.
 * Avoid changing the *function signatures* in the starter code; simply fill in the functions' bodies.
-* After passing all unit tests, complete `main.py` to finalize the project.
+* After passing all unit tests, complete `big_data.py` to finalize the project.
     * For the final testing phase, use Unix text tools to generate datasets in `data/` for system tests.
     * Compare the program's output with the provided samples.
     * If all unit tests pass, the program's output should exactly match the samples.
@@ -159,11 +159,11 @@ This class contains statistics for a single industry.
 *   Attributes
     *   `num_areas`: Integer, stores the number of areas in this part of the report.
     *   `total_annual_wages`: Integer, stores the total annual wages.
-    *   `max_annual_wage`: List, stores the area (a string) with the maximum annual wage and its value (an integer). Format: `[area, wage]`
-    *   `total_estab`: Integer, stores the total number of establishments.
-    *   `max_estab`: List, stores the area (a string) with the maximum number of establishments and its value (an integer). Format: `[area, num]`
-    *   `total_empl`: Integer, stores the total number of employees.
-    *   `max_empl`: List, stores the area (a string) with the maximum number of employees and its value (an integer). Format: `[area, num]`
+    *   `max_annual_wages`: List, stores the area (a string) with the maximum annual wage and its value (an integer). Format: `[area, wage]`
+    *   `total_estabs`: Integer, stores the total number of establishments.
+    *   `max_estabs`: List, stores the area (a string) with the maximum number of establishments and its value (an integer). Format: `[area, num]`
+    *   `total_emplvl`: Integer, stores the total number of employees.
+    *   `max_emplvl`: List, stores the area (a string) with the maximum number of employees and its value (an integer). Format: `[area, num]`
 *   The initializer `__init__(self)` doesn't require any parameters.
     *   This is because the object is designed to accumulate data incrementally over time.
     *   Since the final values aren't known when the object is created, there's no need to pass any initial values to the constructor.
@@ -173,7 +173,7 @@ This class contains statistics for a single industry.
 *   Method
     *   `add_record(self, record, areas)`
         *   Adds a record's data to the summary statistics.
-        *   This method does not need to validate it its input; the record must be validated before this method is called.
+        *   This method does not need to validate its input; the record must be validated before this method is called.
         *   Parameters:
             *   record: A record containing employment and wage data.
             *   areas: A dictionary mapping FIPS area codes to human-friendly area titles.

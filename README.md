@@ -45,7 +45,7 @@ The starter code consists of 23 test cases, of which only two succeed at the out
 
 *   You may run the unit tests through PyCharm or the shell.
 *   The unit tests are files in the directory `src/tests`
-*   To run the tests from your shell, run `src/run_tests.py`.
+*   To run the tests from your shell, first `cd src`, then run `python run_tests.py`.
 *   Full instructions are found in [Running Unit Tests](./instructions/Running_Unit_Tests.md).
 
 

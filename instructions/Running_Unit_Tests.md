@@ -6,10 +6,11 @@ The starter code consists of 23 test cases, 2 of which already pass.  You will i
 ## Running all test suites
 
 *   You may run the unit tests through PyCharm or the shell.
-*   To execute the tests from your shell, run `src/run_tests.py`.  This script is a convenient way to execute all of the tests in one go.  It produces a lot of output:
+*   To execute the tests from your shell, first `cd src` then run `python run_tests.py`.  This script is a convenient way to execute all of the tests in one go.  It produces a lot of output:
 
 ```
-$ python src/run_tests.py
+$ cd src
+$ python run_tests.py
 test_50_states (tests.test_area_titles.TestAreaTitles.test_50_states)
 The areas dictionary contains FIPS codes representing all 50 states ... ERROR
 test_dictionary_length (tests.test_area_titles.TestAreaTitles.test_dictionary_length)
