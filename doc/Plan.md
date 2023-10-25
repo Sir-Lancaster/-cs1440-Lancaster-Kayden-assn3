@@ -114,14 +114,35 @@ areadict = []
 for area-titles.csv in dirname
     open(area-titles.csv)
     for line in area-titles.csv
-        data = line.strip().split(',')
-        record = {
-            data[1]: data[2]
-        }
+        if int(data[0]) % 1000 !== 0
+            data = line.strip().split(',')
+            record = {
+                data[0]: data[1]
+            }
         areadict.append(record)
     close(area-titles.csv)
+    return areadict
 ```
-this will open area-titles.csv and will read each line for the FIPS and the name of the area, format them temporarily in the record variable and then append the record variable to the dictionary. It will probably need some tweeking to get it to work propperly. 
+October 24: this will open area-titles.csv and will read each line for the FIPS and the name of the area, format them temporarily in the record variable and then append the record variable to the dictionary. It will probably need some tweeking to get it to work propperly. 
+
+October 25: Added the if statement that will filter out the bad FIPS. 
+
+#### __init__(self)
+```Python
+        num_areas = 0
+        total_anual_wages = 0
+        max_annual_wages = ["", 0]
+        
+        total_estab = 0
+        max_estab = ["", 0]
+
+        total_empl = 0
+        max_empl = ["", 0]
+```
+Initializes all of the attributes for the industry data class.
+
+### add_reacord(self, record, areas)
+
 **Important - do not change the code in this phase**
 
 Deliver:
