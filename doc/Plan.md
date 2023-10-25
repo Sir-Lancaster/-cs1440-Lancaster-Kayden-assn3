@@ -42,6 +42,7 @@ Deliver:
 
 ## Phase 1: Design (tag name `designed`)
 *(30% of your effort)*
+I am not going to design big_data.py because it simply calls all of the other modules. If i am writing it later and am struggling I will delete this statement and design it.
 
 ### Util.py
 The heart of the program.
@@ -143,24 +144,27 @@ Initializes all of the attributes for the industry data class.
 
 ### add_reacord(self, record, areas)
 ```Python
-for record in areas
+for record[0] in areas
     num_areas += 1
+    CurrentRecordFIPS = getFIPS(record)
     CurrentRecordWages = getwages(record)
     total_annual_wages += CurrentRecordWages
     if CurrentRecordWages > max_annual_wages[1]
-        max_annual_wages = [areas, CurrentRecordWages]
+        max_annual_wages = [areas[CurrentRecordFIPS], CurrentRecordWages]
     
     CurrentRecordEstab = getestabs(record)
     total_estab += CurrentRecordEstab
     if CurrentRecordEstab > max_estab[1]
-        max_estab = [areas, CurrentRecordEstab]
+        max_estab = [areas[CurrentRecordFIPS], CurrentRecordEstab]
     
     CurrentRecordEmplvl = getemplvl(record)
     total_empl += CurrentRecordEmplvl
     if CurrentRecordEmplvl > max_empl[1]
-        max_empl = [areas, CurrentRecordEmplvl]
+        max_empl = [areas[CurrentRecordFIPS], CurrentRecordEmplvl]
 ```
+Each of these three "bodies" of code are identical in structure. First we define a variable for the current record xxxx (xxxx being the wages, establishments, and employee levels) and assign it a variable using the util get functions. Then we add the new variable to the total_xxxx attributes from the initializer. Finaly we compare the Current Record xxxx to the max_xxxx at index 1 (to avoid the error of comparing an int to a string), and reassign the new variable to the max atribute if necessary. 
 **Important - do not change the code in this phase**
+
 
 Deliver:
 
