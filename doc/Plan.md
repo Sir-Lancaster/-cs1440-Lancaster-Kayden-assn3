@@ -105,6 +105,23 @@ Same as the last one but returns emplvl
 return record[15]
 ```
 returns the total anual wages. 
+
+#### area_titles_to_dict(dirname)
+```Python
+#    This function locates a CSV file called `area-titles.csv` in the specified directory, and transforms it into a dictionary
+areadict = []
+
+for area-titles.csv in dirname
+    open(area-titles.csv)
+    for line in area-titles.csv
+        data = line.strip().split(',')
+        record = {
+            data[1]: data[2]
+        }
+        areadict.append(record)
+    close(area-titles.csv)
+```
+this will open area-titles.csv and will read each line for the FIPS and the name of the area, format them temporarily in the record variable and then append the record variable to the dictionary. It will probably need some tweeking to get it to work propperly. 
 **Important - do not change the code in this phase**
 
 Deliver:
