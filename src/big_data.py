@@ -27,14 +27,12 @@ from report import Report
 from util import record_matches_fips, record_is_all_industries, record_is_software_industry
 
 
-print("TODO: if sys.argv[1] is not given, print a usage message and exit")  # DELETE ME
-
+if sys.argv is None:
+    print("Program was not called correctly, please make sure you are in the directory: cs1440-assn3/ and on your command line type the following command replacing 'Directory' with the directory leading to area-titles.csv:\n$ python src/big_data.py Directory")
+    sys.exit()
 print("Reading the databases...", file=sys.stderr)
 before = time.time()
-
-print("TODO: create a dictionary from 'sys.argv[1]/area-titles.csv'")  # DELETE ME
-print("TODO: if accessing 'sys.argv[1]/area-titles.csv' fails, let your program crash here")  # DELETE ME
-print("TODO: the FIPS dictionary should contain 3,463 pairs")  # DELETE ME
+areas = area_titles_to_dict(sys.argv)
 
 print("TODO: Fill in the report using information from 'sys.argv[1]/2022.annual.singlefile.csv'")  # DELETE ME
 

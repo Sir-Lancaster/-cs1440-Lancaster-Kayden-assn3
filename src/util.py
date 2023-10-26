@@ -23,6 +23,10 @@ def record_matches_fips(record, areas):
     decides whether the record contains information about a FIPS area in
     the dictionary
     """
+    if record in areas:
+        return True
+    else:
+        return False
     pass
 
 
@@ -32,6 +36,10 @@ def record_is_all_industries(record):
     contains information about all industries under all types of
     ownership throughout the entire economy
     """
+    if record[2] == '10':
+        return True
+    else:
+        return False
     pass
 
 
@@ -40,6 +48,10 @@ def record_is_software_industry(record):
     Predicate that takes a QCEW record and decides whether the record
     contains information about privately owned software publishing firms
     """
+    if record[2] == '513210' and record[1] == '5':
+        return True
+    else:
+        return False
     pass
 
 
@@ -47,6 +59,7 @@ def get_fips(record):
     """
     Extracts a FIPS area code from a QCEW record
     """
+    return record[0]
     pass
 
 
@@ -55,6 +68,7 @@ def get_estabs(record):
     Extracts the annual average of quarterly establishment counts for a
     given year from a QCEW record
     """
+    return record[13]
     pass
 
 
@@ -63,6 +77,7 @@ def get_emplvl(record):
     Extracts the annual average of monthly employment levels for a given
     year from a QCEW record
     """
+    return record[14]
     pass
 
 
@@ -71,4 +86,5 @@ def get_wages(record):
     Extracts the sum of the four quarterly total wage levels for a given
     year from a QCEW record
     """
+    return record[15]
     pass

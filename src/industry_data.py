@@ -27,6 +27,15 @@ class IndustryData:
     def __init__(self):
         # Study the instructions and the unit tests to discover
         # the names and types of the attributes
+        num_areas = 0
+        total_anual_wages = 0
+        max_annual_wages = ["", 0]
+        
+        total_estab = 0
+        max_estab = ["", 0]
+
+        total_empl = 0
+        max_empl = ["", 0]
         pass
 
     def add_record(self, record, areas):
@@ -49,4 +58,21 @@ class IndustryData:
          - Calculates and accumulates the total employment level.
          - Keeps track of the area with the maximum employment level.
         """
+        for record[0] in areas:
+            num_areas += 1
+            CurrentRecordFIPS = get_fips(record)
+            CurrentRecordWages = get_wages(record)
+            total_annual_wages += CurrentRecordWages
+            if CurrentRecordWages > max_annual_wages[1]:
+                max_annual_wages = [areas[CurrentRecordFIPS], CurrentRecordWages]
+    
+            CurrentRecordEstab = get_estabs(record)
+            total_estab += CurrentRecordEstab
+            if CurrentRecordEstab > max_estab[1]:
+                max_estab = [areas[CurrentRecordFIPS], CurrentRecordEstab]
+    
+            CurrentRecordEmplvl = get_emplvl(record)
+            total_empl += CurrentRecordEmplvl
+            if CurrentRecordEmplvl > max_empl[1]:
+                max_empl = [areas[CurrentRecordFIPS], CurrentRecordEmplvl]
         pass

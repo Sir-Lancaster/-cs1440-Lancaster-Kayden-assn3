@@ -22,4 +22,17 @@ def area_titles_to_dict(dirname):
     This function locates a CSV file called `area-titles.csv` in
     the specified directory, and transforms it into a dictionary
     """
+    areadict = {}
+    filename = dirname[1] + "area-titles.csv"
+    for filename in dirname:
+        open(filename)
+        for line in filename:
+            data = line.strip().split(',')
+            if int(data[0]) % 1000 != 0 and data[0]:
+                record = {
+                    data[0]: data[1]
+                }
+            areadict.append(record)
+        filename.close()
+    return areadict
     pass
