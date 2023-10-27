@@ -58,22 +58,20 @@ class IndustryData:
          - Calculates and accumulates the total employment level.
          - Keeps track of the area with the maximum employment level.
         """
-        for record[0] in areas:
-            self.num_areas += 1
-            CurrentRecordFIPS = get_fips(record)
-            CurrentRecordWages = int(get_wages(record))
-            self.total_annual_wages += CurrentRecordWages
-            if CurrentRecordWages > self.max_annual_wages[1]:
-                self.max_annual_wages = [areas[CurrentRecordFIPS], CurrentRecordWages]
+        self.num_areas += 1
+        CurrentRecordFIPS = get_fips(record)
+        CurrentRecordWages = int(get_wages(record))
+        self.total_annual_wages += CurrentRecordWages
+        if CurrentRecordWages > self.max_annual_wages[1]:
+            self.max_annual_wages = [areas[CurrentRecordFIPS], CurrentRecordWages]
+
+        CurrentRecordEstab = int(get_estabs(record))
+        self.total_estabs += CurrentRecordEstab
+        if CurrentRecordEstab > self.max_estabs[1]:
+            self.max_estabs = [areas[CurrentRecordFIPS], CurrentRecordEstab]
+
+        CurrentRecordEmplvl = int(get_emplvl(record))
+        self.total_emplvl += CurrentRecordEmplvl
+        if CurrentRecordEmplvl > self.max_emplvl[1]:
+            self.max_emplvl = [areas[CurrentRecordFIPS], CurrentRecordEmplvl]
     
-            CurrentRecordEstab = int(get_estabs(record))
-            self.total_estabs += CurrentRecordEstab
-            if CurrentRecordEstab > self.max_estabs[1]:
-                self.max_estabs = [areas[CurrentRecordFIPS], CurrentRecordEstab]
-    
-            CurrentRecordEmplvl = int(get_emplvl(record))
-            self.total_emplvl += CurrentRecordEmplvl
-            if CurrentRecordEmplvl > self.max_emplvl[1]:
-                self.max_emplvl = [areas[CurrentRecordFIPS], CurrentRecordEmplvl]
-        
-        pass

@@ -23,7 +23,7 @@ def area_titles_to_dict(dirname):
     the specified directory, and transforms it into a dictionary
     """
     areadict = {}
-    filename = str(dirname[1].strip()) + "area-titles.csv"
+    filename = str(dirname) + "/area-titles.csv"
     with open(filename, 'r') as file:
         for line in file:
             data = line.strip().split(',')

@@ -32,8 +32,7 @@ if len(sys.argv) < 1:
     sys.exit()
 print("Reading the databases...", file=sys.stderr)
 before = time.time()
-areas = area_titles_to_dict(sys.argv)
-print("TODO: Fill in the report using information from 'sys.argv[1]/2022.annual.singlefile.csv'")  # DELETE ME
+areas = area_titles_to_dict(sys.argv[1])
 
 rpt = Report(year=2022)
 filename = sys.argv[1] + "/2022.annual.singlefile.csv"
@@ -52,5 +51,3 @@ print(f"Done in {after - before:.3f} seconds!", file=sys.stderr)
 
 # Print the completed report
 print(rpt)
-
-print("TODO: did you delete all of the TODO messages?")  # DELETE ME
