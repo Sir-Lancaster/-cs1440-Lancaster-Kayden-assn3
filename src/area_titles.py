@@ -26,7 +26,7 @@ def area_titles_to_dict(dirname):
     filename = str(dirname) + "/area-titles.csv"
     with open(filename, 'r') as file:
         for line in file:
-            data = line.strip().split(',')
+            data = line.strip().split('","')
             if data[0].strip('"').isdigit() and not data[0].strip('"').endswith("000"):
                 areadict[data[0].strip('"')] = data[1].strip('"')
     return areadict

@@ -204,8 +204,94 @@ Deliver:
     *   For any bugs discovered, describe their cause and remedy.
     *   Write your test cases in plain language such that a non-coder could run them and replicate your experience.
 *   [ ] **Tag** the last commit in this phase `tested` and push it to GitLab.
+### run_tests.py
+* From the src/ directory in the command line type "python run_tests.py"
+* To fix the utility functions I had to strip the record paramater of quote marks for them to pass. 
+* IndustryData class was failing because I had forgotten to put self. before I tried to update the atributes. 
+* area_titles_to_dict was failing because I had written the filename variable wrong, and it was simply a matter of rewriting it so that it was not dirname[1] and was just dirname. 
+* add_record function of IndustryData was also failing for the same reason as area_titles_to_dict.
+* add_record was failing because I had all of the function nested into a for loop so it was double counting the num_areas variable. Taking it out of the for loop fixed it. 
 
+### Other tests
+I have run all of these commands from the 'cs1440_assn3/' directory. 
+#### DC tests
 
+```bash
+python src/big_data.py data/DC_all_industries > DC.txt
+diff -u --color=always DC.txt data/DC_all_industries/output.txt
+```
+
+```bash
+python src/big_data.py data/DC_complete > DC.txt
+diff -u --color=always DC.txt data/DC_complete/output.txt
+```
+
+```bash
+python src/big_data.py data/DC_software_industry > DC.txt
+diff -u --color=always DC.txt data/DC_software_industry/output.txt
+```
+No errors occured after running these tests.
+#### IN tests
+```bash
+python src/big_data.py data/IN_all_industries > IN.txt
+diff -u --color=always IN.txt data/IN_all_industries/output.txt
+```
+**EVENT:**
+ Total annual wages                   $180,739,411,695
+-Area with maximum annual wages       Marion County                     difference detected
++Area with maximum annual wages       Marion County, Indiana            correct output
+ Maximum reported wages               $42,766,021,296
+
+ Total number of establishments       186,198
+-Area with most establishments        Marion County                     Difference
++Area with most establishments        Marion County, Indiana
+ Maximum # of establishments          27,058
+
+ Total annual employment level        3,113,422
+-Area with maximum employment         Marion County                     Difference
++Area with maximum employment         Marion County, Indiana
+ Maximum reported employment level    607,919
+
+**FIX:** 
+Had to change line 29 in area_titles.py to be:
+```python
+data = line.strip().split('","')
+```
+
+```bash
+python src/big_data.py data/IN_software_industry > IN.txt
+diff -u --color=always IN.txt data/IN_software_industry/output.txt
+```
+#### NH+RI tests
+```bash
+python src/big_data.py data/NH+RI_complete > NH+RI.txt
+diff -u --color=always NH+RI.txt data/NH+RI_complete/output.txt
+```
+
+```bash
+python src/big_data.py data/NH+RI_reversed > NH+RI.txt
+diff -u --color=always NH+RI.txt data/NH+RI_reversed/output.txt
+```
+#### USA_full test
+```bash
+python src/big_data.py data/USA_full > USA.txt
+diff -u --color=always USA.txt data/USA_full/output.txt
+```
+#### UT tests
+```bash
+python src/big_data.py data/UT_complete > UT.txt
+diff -u --color=always UT.txt data/UT_complete/output.txt
+```
+
+```bash
+python src/big_data.py data/UT_reversed > UT.txt
+diff -u --color=always UT.txt data/UT_reversed/output.txt
+```
+These tests should not produce any output other that if there is a problem. Any events were recorded.
+After running these tests I ran the following command to remove the txt files:
+```bash
+rm DC.txt IN.txt NH+RI.txt USA.txt UT.txt
+``` 
 ## Phase 4: Deployment (tag name `deployed`)
 *(5% of your effort)*
 
