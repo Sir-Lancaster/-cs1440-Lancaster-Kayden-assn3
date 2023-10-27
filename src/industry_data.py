@@ -27,15 +27,15 @@ class IndustryData:
     def __init__(self):
         # Study the instructions and the unit tests to discover
         # the names and types of the attributes
-        num_areas = 0
-        total_anual_wages = 0
-        max_annual_wages = ["", 0]
+        self.num_areas = 0
+        self.total_annual_wages = 0
+        self.max_annual_wages = ["", 0]
         
-        total_estab = 0
-        max_estab = ["", 0]
+        self.total_estabs = 0
+        self.max_estabs = ["", 0]
 
-        total_empl = 0
-        max_empl = ["", 0]
+        self.total_emplvl = 0
+        self.max_emplvl = ["", 0]
         pass
 
     def add_record(self, record, areas):
@@ -59,20 +59,22 @@ class IndustryData:
          - Keeps track of the area with the maximum employment level.
         """
         for record[0] in areas:
-            num_areas += 1
+            self.num_areas += 1
+            print(self.num_areas)
             CurrentRecordFIPS = get_fips(record)
-            CurrentRecordWages = get_wages(record)
-            total_annual_wages += CurrentRecordWages
-            if CurrentRecordWages > max_annual_wages[1]:
-                max_annual_wages = [areas[CurrentRecordFIPS], CurrentRecordWages]
+            CurrentRecordWages = int(get_wages(record))
+            self.total_annual_wages += CurrentRecordWages
+            if CurrentRecordWages > self.max_annual_wages[1]:
+                self.max_annual_wages = [areas[CurrentRecordFIPS], CurrentRecordWages]
     
-            CurrentRecordEstab = get_estabs(record)
-            total_estab += CurrentRecordEstab
-            if CurrentRecordEstab > max_estab[1]:
-                max_estab = [areas[CurrentRecordFIPS], CurrentRecordEstab]
+            CurrentRecordEstab = int(get_estabs(record))
+            self.total_estabs += CurrentRecordEstab
+            if CurrentRecordEstab > self.max_estabs[1]:
+                self.max_estabs = [areas[CurrentRecordFIPS], CurrentRecordEstab]
     
-            CurrentRecordEmplvl = get_emplvl(record)
-            total_empl += CurrentRecordEmplvl
-            if CurrentRecordEmplvl > max_empl[1]:
-                max_empl = [areas[CurrentRecordFIPS], CurrentRecordEmplvl]
+            CurrentRecordEmplvl = int(get_emplvl(record))
+            self.total_emplvl += CurrentRecordEmplvl
+            if CurrentRecordEmplvl > self.max_emplvl[1]:
+                self.max_emplvl = [areas[CurrentRecordFIPS], CurrentRecordEmplvl]
+        
         pass

@@ -23,16 +23,12 @@ def area_titles_to_dict(dirname):
     the specified directory, and transforms it into a dictionary
     """
     areadict = {}
-    filename = dirname[1] + "area-titles.csv"
-    for filename in dirname:
-        open(filename)
-        for line in filename:
+    filename = str(dirname[1].strip()) + "area-titles.csv"
+    with open(filename, 'r') as file:
+        for line in file:
             data = line.strip().split(',')
-            if int(data[0]) % 1000 != 0 and data[0]:
-                record = {
-                    data[0]: data[1]
-                }
-            areadict.append(record)
-        filename.close()
+            if data[0].strip('"').isdigit() and not data[0].strip('"').endswith("000"):
+                areadict[data[0].strip('"')] = data[1].strip('"')
     return areadict
+
     pass

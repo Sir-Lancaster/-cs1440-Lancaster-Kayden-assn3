@@ -27,30 +27,25 @@ from report import Report
 from util import record_matches_fips, record_is_all_industries, record_is_software_industry
 
 
-if sys.argv is None:
+if len(sys.argv) < 1:
     print("Program was not called correctly, please make sure you are in the directory: cs1440-assn3/ and on your command line type the following command replacing 'Directory' with the directory leading to area-titles.csv:\n$ python src/big_data.py Directory")
     sys.exit()
 print("Reading the databases...", file=sys.stderr)
 before = time.time()
 areas = area_titles_to_dict(sys.argv)
-
 print("TODO: Fill in the report using information from 'sys.argv[1]/2022.annual.singlefile.csv'")  # DELETE ME
 
-rpt = Report()
-rpt.all.num_areas           = 1337
-rpt.all.total_annual_wages  = 13333337
-rpt.all.max_annual_wages    = ["Trantor", 123456]
-rpt.all.total_estabs        = 42
-rpt.all.max_estabs          = ["Terminus", 12]
-rpt.all.total_emplvl        = 987654
-rpt.all.max_emplvl          = ["Anacreon", 654]
-rpt.soft.num_areas          = 1010
-rpt.soft.total_annual_wages = 101001110111
-rpt.soft.max_annual_wages   = ["Helicon", 110010001]
-rpt.soft.total_estabs       = 1110111
-rpt.soft.max_estabs         = ["Solaria", 11000]
-rpt.soft.total_emplvl       = 100010011
-rpt.soft.max_emplvl         = ["Gaia", 10110010]
+rpt = Report(year=2022)
+filename = sys.argv[1] + "/2022.annual.singlefile.csv"
+with open(filename, 'r') as file:
+    for line in file:
+        record = line.strip().strip('"').split(',')
+        if record_matches_fips(record, areas):
+            print("i returned true.")
+            if record_is_all_industries(record):
+                rpt.all.add_record(record, areas)
+            if record_is_software_industry(record):
+                rpt.soft.add_record(record, areas)      
 
 
 after = time.time()
