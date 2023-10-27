@@ -310,7 +310,7 @@ Deliver:
     *   Run through your test cases to avoid nasty surprises.
     *   Check that your documentation files are all present.
 
-
+Done!
 ## Phase 5: Maintenance
 
 Spend a few minutes writing thoughtful answers to these questions.  They are meant to make you think about the long-term consequences of choices you made in this project.
