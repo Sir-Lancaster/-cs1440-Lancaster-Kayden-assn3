@@ -331,3 +331,9 @@ Deliver:
         *   ...to the next version of Python?
 *   [ ] Make one final commit and push your **completed** Software Development Plan to GitLab.
 *   [ ] Respond to the **Assignment Reflection Survey** on Canvas.
+**ANSWERS:**
+* big_data.py is a little slopy, but it shouldn't be too hard to understand.
+    * If a bug is reported, it should not take more that a few hours to fix.
+* My documentation (hopefully) makes sense to everyone.
+* adding a new feature shouldn't be too hard, it should just be as easy as adding a new function to one of the modules then calling it correctly.
+* The only thing that should make the program stop working is if the BLS changes something.
