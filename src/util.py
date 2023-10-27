@@ -37,7 +37,7 @@ def record_is_all_industries(record):
     ownership throughout the entire economy
     """
     pass
-    if record[2].strip('"') == 10:
+    if record[2].strip('"') == '10' and record[1].strip('"') == '0':
         return True
     else:
         return False
@@ -48,7 +48,7 @@ def record_is_software_industry(record):
     Predicate that takes a QCEW record and decides whether the record
     contains information about privately owned software publishing firms
     """
-    if record[2].strip('"') == 513210 and record[1].strip('"') == 5:
+    if record[2].strip('"') == '513210' and record[1].strip('"') == '5':
         return True
     else:
         return False
@@ -59,8 +59,7 @@ def get_fips(record):
     Extracts a FIPS area code from a QCEW record
     """
     pass
-    record[0].strip('"')
-    return record[0]
+    return record[0].strip('"')
 
 
 def get_estabs(record):

@@ -192,6 +192,7 @@ Deliver:
     *   e.g. things you learned, things that didn't go according to plan.
 *   [ ] **Tag** the last commit in this phase `implemented` and push it to GitLab.
 
+I have finally finished phase 2. On all of my functions I had to add the .strip() statement. The code works right now, but it is going over WAY too many FIPS and so I will need to look into why thats happening. I can't think of anything else that was noteworthy. The main reason it took so long was just because I either had the wrong .strip() writen, or I made small syntax errors with them. Something weird has been happening with the run_tests.py though. On the area-titles.csv that it is supposed to be passing to the function, it is passing earea-titles.csv. gotta email a TA about that. 
 
 ## Phase 3: Testing and Debugging (tag name `tested`)
 *(30% of your effort)*

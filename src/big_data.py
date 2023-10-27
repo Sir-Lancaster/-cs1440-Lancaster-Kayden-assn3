@@ -41,7 +41,6 @@ with open(filename, 'r') as file:
     for line in file:
         record = line.strip().strip('"').split(',')
         if record_matches_fips(record, areas):
-            print("i returned true.")
             if record_is_all_industries(record):
                 rpt.all.add_record(record, areas)
             if record_is_software_industry(record):

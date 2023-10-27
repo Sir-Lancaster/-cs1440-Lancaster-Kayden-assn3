@@ -60,7 +60,6 @@ class IndustryData:
         """
         for record[0] in areas:
             self.num_areas += 1
-            print(self.num_areas)
             CurrentRecordFIPS = get_fips(record)
             CurrentRecordWages = int(get_wages(record))
             self.total_annual_wages += CurrentRecordWages
